@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de CPF - Teste</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="box container">
+        <div class="title">
+            <h1>Validação de CPF/CNPJ</h1>
+        </div>
+        <div class="info"> 
+            <!-- dinamizar de acordo com a escolha do registro (cpf ou cnpj) -->
+            <div class="content">
+                <p>Já imaginou como seria legal se existisse uma Regra de validação para CPF e CNPJ, vivemos em um país burocrático, onde existem muitas regras, e um conjunto de números sem igual, é RG, Título de eleitor, CPF e CNPJ entre muitos outros números que temos que lidar no nosso dia a dia.</p>            
+
+                <p><strong>O que é o CPF?</strong></p>
+
+                <p>O CPF ou Cadastro de Pessoa Física é um documento brasileiro emitido pela Secretaria da Receita Federal do Ministério da Fazenda.
+                Seu número é composto por 11 dígitos, sendo os dois últimos os dígitos verificadores, que atestam se o número do CPF é válido.</p>
+
+                <p><strong>O que é um CNPJ?</strong></p>
+
+                <p>No Brasil, o Cadastro Nacional da Pessoa Jurídica, é um número único que identifica uma pessoa jurídica e outros tipos de arranjo jurídico sem personalidade jurídica (como condomínios, órgãos públicos, fundos) junto à Receita Federal brasileira (órgão do Ministério da Fazenda).
+                O CNPJ compreende as informações cadastrais das entidades de interesse das administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios.</p>
+            </div>          
+
+        </div>
+
+        <div class="validate">                      
+           <div class="content">
+            <div class="form-group col-md-3">
+                <label for="inputState"><strong>Selecione um registro:</strong></label>
+                <select id="inputState" class="form-control">
+                  <option value="default">Selecione</option>
+                  <option value="cpf">CPF</option>
+                  <option value="cnpj">CNPJ</option>
+                </select>
+            </div>                 
+              
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">Limpar</button>
+                    <button class="btn btn-primary" type="button">Validar</button>
+                </div>
+            </div>
+            
+            <div class="alerts">
+                <div class="alert alert-success" role="alert">
+                    <!-- dinimizar aqui a frase de sucesso -->
+                    Este registro é válido.
+                </div>
+
+                <div class="alert alert-danger" role="alert">
+                    <!-- dinimizar aqui a frase de erro -->
+                    Este registro não é válido.
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+    <!-- <footer>
+        <p>&COPY; Teste</p>
+    </footer> -->
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
