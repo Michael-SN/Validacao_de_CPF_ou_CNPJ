@@ -34,18 +34,17 @@
            <div class="content">
             <div class="form-group col-md-3">
                 <label for="inputState"><strong>Selecione um registro:</strong></label>
-                <select id="inputState" class="form-control">
-                  <option value="default">Selecione</option>
-                  <option value="cpf">CPF</option>
+                <select id="inputState" class="form-control">                  
+                  <option value="cpf" selected>CPF</option>
                   <option value="cnpj">CNPJ</option>
                 </select>
             </div>                 
               
-            <div class="input-group">
-                <input type="text" class="form-control">
+            <div class="input-group">                
+                <input type="text" class="form-control inputText">
                 <div class="input-group-append">
-                    <button class="btn btn-secondary" type="button">Limpar</button>
-                    <button class="btn btn-primary" type="button">Validar</button>
+                    <button class="btn btn-secondary btn-clear" type="reset">Limpar</button>
+                    <button class="btn btn-primary btn-submit" type="submit">Validar</button>
                 </div>
             </div>
             
