@@ -45,7 +45,8 @@ function mascaraCNPJ () {
 }
 
 const btnSubmit = document.querySelector('.btn-submit');
-btnSubmit.addEventListener('click', );
+btnSubmit.addEventListener('click', show);
+function show () {alert(inputText.value)}
 
 
 const btnClear = document.querySelector('.btn-clear');
