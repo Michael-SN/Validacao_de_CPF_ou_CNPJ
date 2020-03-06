@@ -45,9 +45,29 @@ function mascaraCNPJ () {
 }
 
 const btnSubmit = document.querySelector('.btn-submit');
-btnSubmit.addEventListener('click', show);
-function show () {alert(inputText.value)}
+btnSubmit.addEventListener('click', validaCPF);
 
+
+
+function validaCPF () {
+    const cpf = inputText.value;
+    const cpfLimpo = cpf.replace(/\D+/g,"").split(''); 
+    const cpfPartial = cpfLimpo.slice(0, -2);
+    let regress = cpfPartial.length + 1;
+    console.log(regress)
+    const digito = cpfPartial.reduce((ac, valor) => {
+        ac += (ac * Number(valor));
+        console.log(ac)
+        regress--;
+        return ac
+    }, 0);
+    console.log(digito);
+    // const result = calculaCPF(digito);
+}
+
+function calculaCPF(val) { 
+    return 11 - (val % 11);
+}
 
 const btnClear = document.querySelector('.btn-clear');
 btnClear.addEventListener('click', clearInput);
