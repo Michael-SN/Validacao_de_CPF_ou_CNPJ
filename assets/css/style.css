@@ -39,5 +39,5 @@ body {
 
 .box .validate .alerts {
     margin: 10px auto;
-    display: none;
+    display: block;
 }
