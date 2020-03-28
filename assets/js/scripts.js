@@ -1,11 +1,25 @@
+window.addEventListener('load', () => {    
+    inputText.addEventListener('keyup', mascaraCPF);
+    redefineSelect();
+}); // ao carregar a pagina ja aciona uma mascara padrao 
+
+window.addEventListener('keyup', e =>{    
+    if(e.keyCode === 13 )  validaCPF();   
+});
+
+const btnSubmit = document.querySelector('.btn-submit');
 const select = document.querySelector('#inputState');
+
 select.addEventListener('change', verificaSelect);
+
 function verificaSelect(){
     if(select.value === 'cnpj') {        
         inputText.addEventListener('keyup', mascaraCNPJ);
+        btnSubmit.addEventListener('click', validaCNPJ);
         inputText.removeEventListener('keyup', mascaraCPF);
     } else {        
         inputText.addEventListener('keyup', mascaraCPF);
+        btnSubmit.addEventListener('click', validaCPF);
         inputText.removeEventListener('keyup', mascaraCNPJ);
     }
     redefineSelect();
@@ -29,26 +43,6 @@ function mascaraCPF () {
         inputText.value = cpf.slice(0, -1);
     }
 }
-
-function mascaraCNPJ () {    
-    let cnpj = inputText.value;
-    if(cnpj.length <= 18){
-        cnpj=cnpj.replace(/\D/g,"")
-        cnpj=cnpj.replace(/^(\d{2})(\d)/,"$1.$2")
-        cnpj=cnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
-        cnpj=cnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
-        cnpj=cnpj.replace(/(\d{4})(\d)/,"$1-$2")
-        inputText.value = cnpj;
-    } else {
-        inputText.value = cnpj.slice(0, -1);
-    }
-}
-
-window.addEventListener('keyup', e =>{    
-    if(e.keyCode === 13 )  validaCPF();   
-})
-const btnSubmit = document.querySelector('.btn-submit');
-btnSubmit.addEventListener('click', validaCPF);
 
 // 0 1 2 3 4 5 6 7 8 9 10 11 12 13
 // 8 2 0 . 8 6 3 . 8 0 0  -  5  4 - comparar os dois ultimos digitos e que se forem iguais o cpf é válido
@@ -114,3 +108,28 @@ function alerta(className, msg){
 const btnClear = document.querySelector('.btn-clear');
 btnClear.addEventListener('click', clearInput);
 function clearInput() { inputText.value = ''; }
+
+
+//-----------------------------------------------------
+//---CNPJ-----------------
+
+function validaCNPJ(){
+    const cnpj = inputText.value;
+    const cpnjLimpo = cnpj.replace(/\D/g, "").split('');
+    console.log(cnpj, cpnjLimpo);
+}
+
+
+function mascaraCNPJ () {    
+    let cnpj = inputText.value;
+    if(cnpj.length <= 18){
+        cnpj=cnpj.replace(/\D/g,"")
+        cnpj=cnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+        cnpj=cnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+        cnpj=cnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+        cnpj=cnpj.replace(/(\d{4})(\d)/,"$1-$2")
+        inputText.value = cnpj;
+    } else {
+        inputText.value = cnpj.slice(0, -1);
+    }
+}
